@@ -32,6 +32,7 @@ services:
       - "6379:6379"
     networks:
       - my-net1
+    command: ["redis-server", "/usr/local/etc/redis/redis.conf"]
     restart: always
 
 networks:
