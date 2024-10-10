@@ -26,6 +26,14 @@ services:
       - "80:80"
     depends_on:
       - backend
+  redis:
+    image: redis:latest
+    ports:
+      - "6379:6379"
+    networks:
+      - my-net1
+    restart: always
+
 networks:
   my-net1:
     driver: bridge
