@@ -26,7 +26,7 @@ public class ChatService {
                 .cmIdx(chatRequestDto.getCmIdx())
                 .chDate(LocalDateTime.now())
                 .chContent(chatRequestDto.getChContent())
-                .chIsRead(chatRequestDto.getChIsRead())
+                .chIsRead(0)
                 .build();
         return ChatMapper.INSTANCE.toDto(chatRepository.save(ChatMapper.INSTANCE.toEntity(chatDto)));
     }
