@@ -24,7 +24,7 @@ public class ChatService {
         ChatDto chatDto = ChatDto.builder()
                 .usIdx(chatRequestDto.getUsIdx())
                 .cmIdx(chatRequestDto.getCmIdx())
-                .chDate(LocalDateTime.parse(chatRequestDto.getChDate()))
+                .chDate(LocalDateTime.now())
                 .chContent(chatRequestDto.getChContent())
                 .chIsRead(chatRequestDto.getChIsRead())
                 .build();
