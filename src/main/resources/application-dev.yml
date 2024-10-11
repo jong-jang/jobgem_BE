@@ -13,7 +13,7 @@ spring:
         password: 1111
     data:
       redis:
-          host: 43.203.249.184
+          host: http://43.203.249.184
           port: 6379
 
 springdoc:
