@@ -107,6 +107,9 @@ public class BlackListService {
   }
 
   public int addBlackList(BlackListRequestDto requestDto) {
+    requestDto.setBlDate(LocalDate.now());
+    requestDto.setBlState(1);
+    requestDto.setBlProcess(0);
     return blacklistRepository.save(BlacklistMapper.INSTANCE.toEntity(requestDto)).getId();
   }
 
