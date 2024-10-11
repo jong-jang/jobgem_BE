@@ -15,7 +15,7 @@ public class RedisConfig {
     @Bean
     public RedisConnectionFactory redisConnectionFactory() {
         // application.yml에 설정된 Redis 서버 주소와 포트로 연결
-        return new LettuceConnectionFactory(new RedisStandaloneConfiguration());
+        return new LettuceConnectionFactory(new RedisStandaloneConfiguration("redis", 6379));
     }
 
     @Bean
