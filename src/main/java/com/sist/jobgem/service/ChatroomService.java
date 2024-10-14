@@ -13,6 +13,7 @@ public class ChatroomService {
     private ChatroomRepository chatroomRepository;
 
     public List<ChatroomResponseDto> getChatroomList(int id) {
+        System.out.println(chatroomRepository.findChatList(id).get(0).getChatList().get(0).getChDate());
         return chatroomRepository.findChatList(id);
     }
 }
