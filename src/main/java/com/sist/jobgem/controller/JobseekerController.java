@@ -52,6 +52,8 @@ public class JobseekerController {
     ApplymentService applymentService;
     @Autowired
     private SseService sseService;
+    @Autowired
+    private AlertService alertService;
 
     @Operation(summary = "jobseeker 정보 불러오기", description = "ID값으로 jobseeker 정보 불러오기")
     @GetMapping("/{id}")
@@ -182,6 +184,7 @@ public class JobseekerController {
 
         // 지원하기 로직 실행
         Applyment applyment = applymentService.addApplyment(dto);
+        alertService.addAlert(postService.getCompanyByPoIdx(applyment.getPoIdx()).getUsIdx(), AlertMessageEnum.ALERT_APPLY.getMessage());
         sseService.sendToClient(postService.getCompanyByPoIdx(applyment.getPoIdx()).getUsIdx(), AlertMessageEnum.ALERT_APPLY.getMessage());
         return ResponseEntity.status(HttpStatus.CREATED).body(applyment);
     }
